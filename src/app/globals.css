@@ -1,14 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-body {
-  background-color: black;
-}
 
 @layer base {
   :root {
-    --background: black;
-    --foreground: white;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -72,5 +69,8 @@ body {
 @layer base {
   * {
     @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
