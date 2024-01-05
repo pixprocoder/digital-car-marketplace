@@ -1,12 +1,12 @@
-import React from "react";
-import NavbarPage from "../shared/Navbar";
 import FooterPage from "../shared/Footer";
+import NavbarPage from "../shared/Navbar";
+import BannerPage from "./Banner";
 
 const HomePage = () => {
   return (
     <div>
       <NavbarPage />
-      <h1>Heloo world</h1>
+      <BannerPage />
       <FooterPage />
     </div>
   );

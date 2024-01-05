@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 const NavbarPage = () => {
   return (
     <header className="bg-gray-500">
-      <nav className="flex justify-between w-[1400px] mx-auto py-4">
+      <nav className="flex items-center justify-between w-[1400px] mx-auto py-4">
         <div className="logo">Logo</div>
         <ul className="flex gap-4">
           <li>Home</li>
