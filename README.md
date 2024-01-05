@@ -2,9 +2,10 @@
 
 ## Technologies Used
 
-- Next.js
-- Tailwind css
-- Shadcn Ui
+- Next.js (js Library)
+- NextAuth (Authentication)
+- Tailwind css & Shadcn Ui (Style)
+- Redux (state management)
 
 ## Main Key Features
 
