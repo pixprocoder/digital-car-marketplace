@@ -3,6 +3,8 @@
 ## Technologies Used
 
 - Next.js (js Library)
+- Typescript
+- React Icons
 - NextAuth (Authentication)
 - Tailwind css & Shadcn Ui (Style)
 - Redux (state management)
