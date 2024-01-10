@@ -1,7 +1,11 @@
-import React from "react";
+"use client";
+import { useGetServicesQuery } from "@/redux/api/apiSlice";
 import FeatureServiceCard from "./FeatureServiceCard";
 
 const FeatureServices = () => {
+  const { data, isLoading } = useGetServicesQuery(undefined);
+  console.log(data);
+
   return (
     <section className="my-20 w-[1400px] mx-auto">
       <h1 className="my-4 text-center">Feature Services</h1>
