@@ -1,3 +1,5 @@
+"use client";
+
 import { Card, CardFooter, CardHeader } from "@/components/ui/card";
 import loginImg from "../../../assets/login.svg";
 import Image from "next/image";
@@ -9,8 +11,17 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
+import { useRef } from "react";
 
 const LoginPage = () => {
+  const emailRef = useRef();
+  const passwordRef = useRef();
+
+  const handleLogin = () => {
+    const email = emailRef?.current!.value;
+    const password = passwordRef?.current!.value;
+  };
+
   return (
     <section className="min-h-screen flex justify-center items-center">
       <div className="">
@@ -18,12 +29,18 @@ const LoginPage = () => {
         <Card className="bg-gray-950 border border-gray-800 w-full flex justify-between items-center flex-col-reverse lg:flex-row">
           <div className="flex-1 w-full">
             <CardHeader className="">
-              <div>
+              <form>
                 <div className="grid w-full max-w-sm items-center my-4">
                   <Label className="text-white mb-1" htmlFor="email">
                     Email
                   </Label>
-                  <Input type="email" id="email" placeholder="Your Email" />
+                  <Input
+                    ref={emailRef}
+                    type="email"
+                    id="email"
+                    placeholder="Your Email"
+                    required
+                  />
                 </div>
 
                 <div className="grid w-full max-w-sm items-center ">
@@ -31,9 +48,11 @@ const LoginPage = () => {
                     Password
                   </Label>
                   <Input
+                    ref={passwordRef}
                     type="password"
                     id="password"
                     placeholder="Your password"
+                    required
                   />
                 </div>
                 <div className="mt-2">
@@ -44,12 +63,15 @@ const LoginPage = () => {
                         Signup
                       </Link>
                     </span>
-                    <Button className="bg-blue-500 hover:bg-blue-600">
+                    <Button
+                      onClick={handleLogin}
+                      className="bg-blue-500 hover:bg-blue-600"
+                    >
                       Login
                     </Button>
                   </div>
                 </div>
-              </div>
+              </form>
             </CardHeader>
             <div className="flex w-28 justify-center items-centers mx-auto">
               <Separator className="my-4" />
