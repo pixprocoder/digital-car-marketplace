@@ -9,9 +9,8 @@ import {
 import React from "react";
 
 const FeatureServiceCard = ({ service }: any) => {
-  console.log(service);
   return (
-    <Card>
+    <Card className="bg-[#0f172a] border-none text-white">
       <CardHeader>
         <CardTitle>{service.serviceName}</CardTitle>
         <CardDescription>{service.description}</CardDescription>
