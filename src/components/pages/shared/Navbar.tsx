@@ -1,9 +1,13 @@
-"use client";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { Button } from "@/components/ui/button";
 import { navLinks } from "@/constants";
+import { getServerSession } from "next-auth";
 import Link from "next/link";
 
-const NavbarPage = () => {
+const NavbarPage = async () => {
+  const session = await getServerSession(authOptions);
+  const user = session?.user;
+
   return (
     <header className=" sticky top-0  py-4 px-4 lg:container mx-auto z-10 bg-[#000000]  shadow-lg border-b border-gray-900  ">
       <div className=" flex justify-between items-center ">
@@ -24,6 +28,9 @@ const NavbarPage = () => {
               </Link>
             </>
           ))}
+
+          <Button className="">{user.name}</Button>
+
           <Link href="/login">
             <Button className="">LOGIN</Button>
           </Link>

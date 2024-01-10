@@ -1,18 +1,20 @@
 "use client";
 
 import { Card, CardFooter, CardHeader } from "@/components/ui/card";
-import loginImg from "../../../assets/login.svg";
+import { signIn } from "next-auth/react";
 import Image from "next/image";
-import { SiGoogle } from "react-icons/si";
-import { SiGithub } from "react-icons/si";
+import { SiGithub, SiGoogle } from "react-icons/si";
+import loginImg from "../../../assets/login.svg";
 
-import Link from "next/link";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
 import { useRef } from "react";
+import loginUser from "../../../../loginUser";
 
+// eslint-disable-next-line @next/next/no-async-client-component
 const LoginPage = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -20,6 +22,9 @@ const LoginPage = () => {
   const handleLogin = () => {
     const email = emailRef?.current!.value;
     const password = passwordRef?.current!.value;
+    const profileURL = "profile";
+    const role = "admin";
+    loginUser(email, password, role, profileURL);
   };
 
   return (
@@ -82,7 +87,7 @@ const LoginPage = () => {
               <Button className="w-full">
                 <SiGoogle className="mr-2 h-4 w-4" /> Login with Googles
               </Button>
-              <Button className="w-full">
+              <Button onClick={() => signIn("github")} className="w-full">
                 <SiGithub className="mr-2 h-4 w-4" /> Continue with Github
               </Button>
             </CardFooter>
