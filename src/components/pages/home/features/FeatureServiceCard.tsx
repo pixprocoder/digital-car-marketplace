@@ -8,18 +8,20 @@ import {
 } from "@/components/ui/card";
 import React from "react";
 
-const FeatureServiceCard = () => {
+const FeatureServiceCard = ({ service }: any) => {
+  console.log(service);
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Card Title</CardTitle>
-        <CardDescription>Card Description</CardDescription>
+        <CardTitle>{service.serviceName}</CardTitle>
+        <CardDescription>{service.description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <p>Card Content</p>
+        <p>price: {service.price}</p>
       </CardContent>
       <CardFooter>
-        <p>Card Footer</p>
+        <p>Duration: {service.duration}</p>
+        <p className="ml-4">Status: {service.availabilityStatus}</p>
       </CardFooter>
     </Card>
   );

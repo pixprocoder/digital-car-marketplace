@@ -4,20 +4,14 @@ import FeatureServiceCard from "./FeatureServiceCard";
 
 const FeatureServices = () => {
   const { data, isLoading } = useGetServicesQuery(undefined);
-  console.log(data);
 
   return (
     <section className="my-20 w-[1400px] mx-auto">
-      <h1 className="my-4 text-center">Feature Services</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        <FeatureServiceCard />
-        <FeatureServiceCard />
-        <FeatureServiceCard />
-        <FeatureServiceCard />
-        <FeatureServiceCard />
-        <FeatureServiceCard />
-        <FeatureServiceCard />
-        <FeatureServiceCard />
+      <h1 className="my-4 text-center text-4xl text-white">Feature Services</h1>
+      <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {data?.map((service) => (
+          <FeatureServiceCard key={service.serviceId} service={service} />
+        ))}
       </div>
     </section>
   );
