@@ -1,21 +1,34 @@
+"use client";
 import { Button } from "@/components/ui/button";
+import { navLinks } from "@/constants";
+import Link from "next/link";
 
 const NavbarPage = () => {
   return (
-    <header className="bg-gray-500">
-      <nav className="flex items-center justify-between w-[1400px] mx-auto py-4">
-        <div className="logo">Logo</div>
-        <ul className="flex gap-4">
-          <li>Home</li>
-          <li>About</li>
-          <li>Book</li>
-          <li>Service</li>
-          <li>Blog</li>
-        </ul>
-        <div>
-          <Button>Sign up</Button>
+    <header className=" sticky top-0  py-4 px-4 lg:container mx-auto z-10 bg-[#000000]  shadow-lg border-b border-gray-900  ">
+      <div className=" flex justify-between items-center ">
+        <div className="flex-1 ">
+          <Link href="/" className=" font-bold text-xl text-white">
+            Logo
+          </Link>
         </div>
-      </nav>
+        <ul className="hidden navItem  lg:flex gap-6 justify-center items-center">
+          {navLinks.map((el, i) => (
+            <>
+              <Link
+                className={` bg-white font-semibold mr-4 cursor-pointer hover:font-bold bg-clip-text text-transparent hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 transition-all duration-100`}
+                key={i}
+                href={el.href}
+              >
+                {el.key}
+              </Link>
+            </>
+          ))}
+          <Link href="/login">
+            <Button className="">LOGIN</Button>
+          </Link>
+        </ul>
+      </div>
     </header>
   );
 };

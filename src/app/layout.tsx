@@ -1,3 +1,5 @@
+import FooterPage from "@/components/pages/shared/Footer";
+import NavbarPage from "@/components/pages/shared/Navbar";
 import Providers from "@/lib/Providers";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -14,11 +16,16 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
+  pageProps: any;
 }) {
   return (
     <html lang="en">
       <Providers>
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          <NavbarPage />
+          <main>{children}</main>
+          <FooterPage />
+        </body>
       </Providers>
     </html>
   );
