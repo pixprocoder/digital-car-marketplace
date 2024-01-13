@@ -1,12 +1,12 @@
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+"use client";
 import { Button } from "@/components/ui/button";
 import { navLinks } from "@/constants";
-import { getServerSession } from "next-auth";
+import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 
-const NavbarPage = async () => {
-  const session = await getServerSession(authOptions);
-  const user = session?.user;
+const NavbarPage = () => {
+  const { data } = useSession();
+  const user = data?.user;
 
   return (
     <header className=" sticky top-0  py-4 px-4 lg:container mx-auto z-10 bg-[#000000]  shadow-lg border-b border-gray-900  ">
@@ -29,11 +29,17 @@ const NavbarPage = async () => {
             </>
           ))}
 
-          <Button className="">{user.name}</Button>
+          <h1 className="text-white">{user?.name}</h1>
 
-          <Link href="/login">
-            <Button className="">LOGIN</Button>
-          </Link>
+          {user?.email ? (
+            <Button onClick={() => signOut()} className="">
+              LOGOUT
+            </Button>
+          ) : (
+            <Link href="/login">
+              <Button className="">LOGIN</Button>
+            </Link>
+          )}
         </ul>
       </div>
     </header>

@@ -84,7 +84,7 @@ const LoginPage = () => {
               <Separator className="my-4" />
             </div>
             <CardFooter className="flex flex-col w-full gap-2">
-              <Button className="w-full">
+              <Button onClick={() => signIn("google")} className="w-full">
                 <SiGoogle className="mr-2 h-4 w-4" /> Login with Googles
               </Button>
               <Button onClick={() => signIn("github")} className="w-full">
