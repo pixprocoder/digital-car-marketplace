@@ -5,10 +5,16 @@ import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 import DropdownMenuPage from "./DropdownMenuPage";
 import { useGetUsersQuery } from "@/redux/api/apiSlice";
+import { FaCartPlus } from "react-icons/fa6";
+import { useAppSelector } from "@/redux/hooks/hooks";
+import { Badge } from "@/components/ui/badge";
 
 const NavbarPage = () => {
   const { data } = useSession();
   const user = data?.user;
+
+  const { value } = useAppSelector((state) => state.service);
+  console.log(value);
 
   const { data: userData, isLoading } = useGetUsersQuery(undefined);
 
@@ -41,6 +47,15 @@ const NavbarPage = () => {
               </Link>
             </>
           ))}
+
+          <div className="relative">
+            <FaCartPlus className="text-[#2563eb] text-3xl cursor-pointer" />
+            <Badge className="text-white absolute bottom-5 right-6">
+              {" "}
+              {value.length}
+            </Badge>
+          </div>
+
           {user?.email ? (
             <>
               <DropdownMenuPage
