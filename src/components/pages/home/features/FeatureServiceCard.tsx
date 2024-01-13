@@ -8,13 +8,23 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useToast } from "@/components/ui/use-toast";
 import { addToCart } from "@/redux/features/services/serviceSlice";
-import { useAppDispatch } from "@/redux/hooks/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks/hooks";
 import React from "react";
 
 const FeatureServiceCard = ({ service }: any) => {
+  const { toast } = useToast();
   const dispatch = useAppDispatch();
-  console.log(service);
+  const { isSuccessful } = useAppSelector((state) => state.service);
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(service));
+    toast({
+      title: "Wow!! 🎉",
+      description: "Service Added Successfully!",
+    });
+  };
 
   return (
     <Card className="bg-[#0f172a] border-none text-white flex flex-col justify-between">
@@ -49,9 +59,7 @@ const FeatureServiceCard = ({ service }: any) => {
         <Button size="sm" variant="secondary">
           View Details
         </Button>
-        <Button onClick={() => dispatch(addToCart(service))}>
-          Add To Cart
-        </Button>
+        <Button onClick={handleAddToCart}>Add To Cart</Button>
       </CardFooter>
     </Card>
   );
