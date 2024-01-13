@@ -30,12 +30,11 @@ const NavbarPage = () => {
               </Link>
             </>
           ))}
-
-          <h1 className="text-white">{user?.name}</h1>
-
           {user?.email ? (
             <>
-              <DropdownMenuPage />
+              <DropdownMenuPage
+                userImage={user?.image ? user?.image : "Gust"}
+              />
             </>
           ) : (
             <Link href="/login">

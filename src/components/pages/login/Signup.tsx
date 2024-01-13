@@ -9,6 +9,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SiGithub, SiGoogle } from "react-icons/si";
 import loginImg from "../../../assets/login.svg";
+import { signIn } from "next-auth/react";
 
 const SignupPage = () => {
   const handleChecked = (e: string) => {
@@ -67,11 +68,11 @@ const SignupPage = () => {
               <Separator className="my-4" />
             </div>
             <CardFooter className="flex flex-col w-full gap-2">
-              <Button className="w-full">
+              <Button onClick={() => signIn("google")} className="w-full">
                 <SiGoogle className="mr-2 h-4 w-4" /> Continue with Google
                 {/* <UserButton afterSignOutUrl="/" /> */}
               </Button>
-              <Button className="w-full">
+              <Button onClick={() => signIn("github")} className="w-full">
                 <SiGithub className="mr-2 h-4 w-4" /> Continue with Github
               </Button>
             </CardFooter>
