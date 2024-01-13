@@ -3,10 +3,12 @@ import { Button } from "@/components/ui/button";
 import { navLinks } from "@/constants";
 import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
+import DropdownMenuPage from "./DropdownMenuPage";
 
 const NavbarPage = () => {
   const { data } = useSession();
   const user = data?.user;
+  // console.log(user);
 
   return (
     <header className=" sticky top-0  py-4 px-4 lg:container mx-auto z-10 bg-[#000000]  shadow-lg border-b border-gray-900  ">
@@ -32,9 +34,9 @@ const NavbarPage = () => {
           <h1 className="text-white">{user?.name}</h1>
 
           {user?.email ? (
-            <Button onClick={() => signOut()} className="">
-              LOGOUT
-            </Button>
+            <>
+              <DropdownMenuPage />
+            </>
           ) : (
             <Link href="/login">
               <Button className="">LOGIN</Button>
