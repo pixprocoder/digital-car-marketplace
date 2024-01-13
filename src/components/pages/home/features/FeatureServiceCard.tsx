@@ -8,9 +8,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { addToCart } from "@/redux/features/services/serviceSlice";
+import { useAppDispatch } from "@/redux/hooks/hooks";
 import React from "react";
 
 const FeatureServiceCard = ({ service }: any) => {
+  const dispatch = useAppDispatch();
+  console.log(service);
+
   return (
     <Card className="bg-[#0f172a] border-none text-white flex flex-col justify-between">
       <CardHeader>
@@ -44,7 +49,9 @@ const FeatureServiceCard = ({ service }: any) => {
         <Button size="sm" variant="secondary">
           View Details
         </Button>
-        <Button>Add To Cart</Button>
+        <Button onClick={() => dispatch(addToCart(service))}>
+          Add To Cart
+        </Button>
       </CardFooter>
     </Card>
   );
