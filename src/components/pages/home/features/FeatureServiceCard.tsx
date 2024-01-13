@@ -41,7 +41,9 @@ const FeatureServiceCard = ({ service }: any) => {
       </CardContent>
 
       <CardFooter className="flex gap-2">
-        <Button variant="secondary">View Details</Button>
+        <Button size="sm" variant="secondary">
+          View Details
+        </Button>
         <Button>Add To Cart</Button>
       </CardFooter>
     </Card>
