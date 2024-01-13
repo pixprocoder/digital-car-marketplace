@@ -9,9 +9,12 @@ export const api = createApi({
     getServices: builder.query({
       query: () => `/services`,
     }),
+    getUsers: builder.query({
+      query: () => `/users`,
+    }),
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetServicesQuery } = api;
+export const { useGetServicesQuery, useGetUsersQuery } = api;

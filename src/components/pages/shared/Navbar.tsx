@@ -4,10 +4,21 @@ import { navLinks } from "@/constants";
 import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 import DropdownMenuPage from "./DropdownMenuPage";
+import { useGetUsersQuery } from "@/redux/api/apiSlice";
 
 const NavbarPage = () => {
   const { data } = useSession();
   const user = data?.user;
+
+  const { data: userData, isLoading } = useGetUsersQuery(undefined);
+
+  const admin = userData?.data.filter((role: any) => role.role === "admin");
+  const super_admin = userData?.data.filter(
+    (role: any) => role.role === "super_admin"
+  );
+
+  // console.log(userData?.data);
+
   // console.log(user);
 
   return (
