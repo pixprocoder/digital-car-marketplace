@@ -8,6 +8,7 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { useAppSelector } from "@/redux/hooks/hooks";
+import Link from "next/link";
 
 export function Cart() {
   const { value } = useAppSelector((state) => state.service);
@@ -23,7 +24,7 @@ export function Cart() {
         ""
       )}
       <div className="grid gap-2 my-4">
-        {value.map((item) => (
+        {value.map((item: any) => (
           <Card
             key={item.serviceId}
             className=" bg-[#070b14] border-none text-gray-300"
@@ -39,9 +40,11 @@ export function Cart() {
       </div>
       <SheetFooter>
         <SheetClose asChild>
-          <Button disabled={value.length <= 0} type="submit">
-            Proceed To Booking
-          </Button>
+          <Link href="/booking">
+            <Button disabled={value.length <= 0} type="submit">
+              Proceed To Booking
+            </Button>
+          </Link>
         </SheetClose>
       </SheetFooter>
     </SheetContent>

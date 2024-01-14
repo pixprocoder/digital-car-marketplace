@@ -1,6 +1,4 @@
-import React from "react";
-
-const ServiceDetailPage = ({ params }) => {
+const ServiceDetailPage = ({ params }: { params: any }) => {
   const id = params.serviceId;
   return (
     <div className="container mx-auto">
