@@ -8,13 +8,14 @@ import { useGetUsersQuery } from "@/redux/api/apiSlice";
 import { FaCartPlus } from "react-icons/fa6";
 import { useAppSelector } from "@/redux/hooks/hooks";
 import { Badge } from "@/components/ui/badge";
+import { Cart } from "../cart/Cart";
+import { Sheet, SheetTrigger } from "@/components/ui/sheet";
 
 const NavbarPage = () => {
   const { data } = useSession();
   const user = data?.user;
 
   const { value } = useAppSelector((state) => state.service);
-  console.log(value);
 
   const { data: userData, isLoading } = useGetUsersQuery(undefined);
 
@@ -49,7 +50,13 @@ const NavbarPage = () => {
           ))}
 
           <div className="relative">
-            <FaCartPlus className="text-[#2563eb] text-3xl cursor-pointer" />
+            <Sheet>
+              <SheetTrigger asChild>
+                <FaCartPlus className="text-[#2563eb] text-3xl cursor-pointer" />
+              </SheetTrigger>
+              <Cart />
+            </Sheet>
+
             <Badge className="text-white absolute bottom-5 right-6">
               {" "}
               {value.length}
