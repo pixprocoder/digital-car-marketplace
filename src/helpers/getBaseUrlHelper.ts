@@ -1,3 +1,6 @@
 export const getBaseUrl = (): string => {
-  return process.env.NEXT_BASE_URL || "http://localhost:5000/api/v1";
+  return (
+    process.env.NEXT_BASE_URL ||
+    "https://digital-car-marketplace-backend.vercel.app/api/v1"
+  );
 };
