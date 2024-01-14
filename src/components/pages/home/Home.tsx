@@ -7,7 +7,7 @@ const HomePage = () => {
     <div>
       <BannerPage />
       <FeatureServices />
-      <Testimonials />
+      {/* <Testimonials /> */}
     </div>
   );
 };

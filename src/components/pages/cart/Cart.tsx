@@ -16,12 +16,17 @@ import { useAppSelector } from "@/redux/hooks/hooks";
 
 export function Cart() {
   const { value } = useAppSelector((state) => state.service);
-  console.log(value);
+
   return (
     <SheetContent className="bg-[#0f172a]  border-none">
       <SheetHeader>
         <SheetTitle className="text-white">MY CART</SheetTitle>
       </SheetHeader>
+      {value.length === 0 ? (
+        <p className="text-center text-white my-4">No Item found</p>
+      ) : (
+        ""
+      )}
       <div className="grid gap-2 my-4">
         {value.map((item) => (
           <Card
@@ -39,7 +44,9 @@ export function Cart() {
       </div>
       <SheetFooter>
         <SheetClose asChild>
-          <Button type="submit">Proceed To Checkout</Button>
+          <Button disabled={value.length <= 0} type="submit">
+            Proceed To Checkout
+          </Button>
         </SheetClose>
       </SheetFooter>
     </SheetContent>
