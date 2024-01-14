@@ -1,16 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardFooter, CardHeader } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Card, CardHeader } from "@/components/ui/card";
 import {
-  Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
   SheetFooter,
   SheetHeader,
   SheetTitle,
-  SheetTrigger,
 } from "@/components/ui/sheet";
 import { useAppSelector } from "@/redux/hooks/hooks";
 
@@ -45,7 +40,7 @@ export function Cart() {
       <SheetFooter>
         <SheetClose asChild>
           <Button disabled={value.length <= 0} type="submit">
-            Proceed To Checkout
+            Proceed To Booking
           </Button>
         </SheetClose>
       </SheetFooter>

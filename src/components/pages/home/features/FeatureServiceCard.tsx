@@ -11,6 +11,7 @@ import {
 import { useToast } from "@/components/ui/use-toast";
 import { addToCart } from "@/redux/features/services/serviceSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks/hooks";
+import Link from "next/link";
 import React from "react";
 
 const FeatureServiceCard = ({ service }: any) => {
@@ -56,9 +57,11 @@ const FeatureServiceCard = ({ service }: any) => {
       </CardContent>
 
       <CardFooter className="flex gap-2">
-        <Button size="sm" variant="secondary">
-          View Details
-        </Button>
+        <Link href={`/services/${service.serviceId}`}>
+          <Button size="sm" variant="secondary">
+            View Details
+          </Button>
+        </Link>
         <Button onClick={handleAddToCart}>Add To Cart</Button>
       </CardFooter>
     </Card>
