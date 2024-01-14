@@ -9,6 +9,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { signOut } from "next-auth/react";
+import Link from "next/link";
 
 const DropdownMenuPage = ({ userImage }: { userImage: string }) => {
   return (
@@ -23,9 +24,11 @@ const DropdownMenuPage = ({ userImage }: { userImage: string }) => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+        {/* <DropdownMenuLabel>My Account</DropdownMenuLabel> */}
         <DropdownMenuSeparator />
-        <DropdownMenuItem>Profile</DropdownMenuItem>
+        <DropdownMenuItem>
+          <Link href={`/profile`}>Profile</Link>
+        </DropdownMenuItem>
         <DropdownMenuItem>Dashboard</DropdownMenuItem>
         <DropdownMenuItem>Team</DropdownMenuItem>
         <DropdownMenuItem>Subscription</DropdownMenuItem>
