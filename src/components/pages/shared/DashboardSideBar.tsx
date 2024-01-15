@@ -18,16 +18,6 @@ const DashboardSideBarPage = () => {
         <hr />
       </div>
       <div className="flex flex-col gap-2 mt-4 px-2">
-        <Tabs defaultValue="password" className="w-[400px]">
-          <TabsList>
-            <TabsTrigger value="account">Account</TabsTrigger>
-            <TabsTrigger value="password">Password</TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="password">Change your password here.</TabsContent>
-        </Tabs>
-
-        <Button>Profile</Button>
         <Button>Order</Button>
         <Button>Booking</Button>
         <Button>Order History</Button>

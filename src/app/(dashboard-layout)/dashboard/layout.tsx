@@ -1,7 +1,5 @@
 import DashboardSideBarPage from "@/components/pages/shared/DashboardSideBar";
-import DashboardPage from "./page";
 import DashboardTopBar from "@/components/pages/shared/DashboardTopBar";
-import Profile from "./profile/page";
 
 export default function DashboardLayout({
   children,
@@ -16,7 +14,6 @@ export default function DashboardLayout({
         <div className="ml-4 w-full ">
           <DashboardTopBar />
           {children}
-          {/* <DashboardPage /> */}
         </div>
       </div>
     </main>
