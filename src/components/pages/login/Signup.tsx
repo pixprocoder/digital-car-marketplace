@@ -14,6 +14,7 @@ import { useRef } from "react";
 import signupUser from "@/helpers/signupUser";
 import { useToast } from "@/components/ui/use-toast";
 
+//*  Page start
 const SignupPage = () => {
   const { toast } = useToast();
   const nameRef = useRef();

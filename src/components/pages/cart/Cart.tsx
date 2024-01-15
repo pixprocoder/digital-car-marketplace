@@ -41,7 +41,10 @@ export function Cart() {
       <SheetFooter>
         <SheetClose asChild>
           <Link href="/booking">
-            <Button disabled={value.length <= 0} type="submit">
+            <Button
+              className={`${value.length <= 0 ? "hidden" : "block"}`}
+              type="submit"
+            >
               Proceed To Booking
             </Button>
           </Link>

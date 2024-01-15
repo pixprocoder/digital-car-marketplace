@@ -26,25 +26,25 @@ const FooterPage = () => {
               <li>
                 <Link
                   className="hover:text-blue-600 transition-all duration-200"
-                  href="/blog"
+                  href="/service"
                 >
-                  Blog
+                  services
                 </Link>
               </li>
               <li>
                 <Link
                   className="hover:text-blue-600 transition-all duration-200"
-                  href="/portfolio"
+                  href="/booking"
                 >
-                  Portfolio
+                  Booking
                 </Link>
               </li>
               <li>
                 <Link
                   className="hover:text-blue-600 transition-all duration-200"
-                  href="/contact"
+                  href="/about"
                 >
-                  Contact
+                  AboutUs
                 </Link>
               </li>
             </ul>
@@ -55,7 +55,7 @@ const FooterPage = () => {
               <li>
                 <Link
                   className="hover:text-blue-600 transition-all duration-200"
-                  href="/"
+                  href="/blog"
                 >
                   Read Blogs
                 </Link>
@@ -87,9 +87,9 @@ const FooterPage = () => {
             </ul>
           </div>
           <div>
-            <h3 className="text-xl font-bold  my-2 lg:mb-4">Follow Me</h3>
+            <h3 className="text-xl font-bold  my-2 lg:mb-4">Follow Us</h3>
             <ul className="space-y-2 text-sm">
-              <li>Connect me on social</li>
+              <li>Connect Us on social</li>
               <ul className="flex gap-4">
                 <li>
                   <Link href="https://www.facebook.com/skpixeel">
@@ -132,8 +132,8 @@ const FooterPage = () => {
           </div>
         </div>
         <p className="text-center text-white mt-14 text-xs ">
-          Copyright ©2023 All rights reserved by |{" "}
-          <b className="text-blue-500">Samsul Kobir 💙</b>
+          Copyright ©2024 All rights reserved by |{" "}
+          <b className="text-blue-500">Digital car service marketplace</b>
         </p>
       </div>
     </footer>
