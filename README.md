@@ -11,7 +11,7 @@
 
 ## Main Key Features
 
-- Authentication
+- Authentication ✅
 - Profile Update
 - Booking
 - Interactivity Ui
@@ -21,3 +21,9 @@
 - Dashboard (user, admin, super-admin)
 - Responsive Design
 - Notifications (Optional)
+
+## Working features
+
+----------- 15/1/2024 ------------
+
+- dashboard

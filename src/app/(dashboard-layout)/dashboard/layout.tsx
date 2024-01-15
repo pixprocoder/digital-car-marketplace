@@ -6,10 +6,5 @@ export default function DashboardLayout({
   children: React.ReactNode;
   pageProps: any;
 }) {
-  return (
-    <main className="container mx-auto min-h-screen">
-      <DashboardPage />
-      {children}
-    </main>
-  );
+  return <main className="container mx-auto ">{children}</main>;
 }
