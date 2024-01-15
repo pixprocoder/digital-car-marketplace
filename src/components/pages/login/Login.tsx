@@ -5,14 +5,13 @@ import { signIn } from "next-auth/react";
 import Image from "next/image";
 import { SiGithub, SiGoogle } from "react-icons/si";
 import loginImg from "../../../assets/login.svg";
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import { useRef } from "react";
-import loginUser from "../../../../loginUser";
+import loginUser from "../../../helpers/loginUser";
 
 // eslint-disable-next-line @next/next/no-async-client-component
 const LoginPage = () => {

@@ -10,10 +10,22 @@ import Link from "next/link";
 import { SiGithub, SiGoogle } from "react-icons/si";
 import loginImg from "../../../assets/login.svg";
 import { signIn } from "next-auth/react";
+import { useRef } from "react";
+import signupUser from "@/helpers/signupUser";
 
 const SignupPage = () => {
-  const handleChecked = (e: string) => {
-    console.log(e);
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+
+  const handleSignup = () => {
+    const name = nameRef.current!.value;
+    const email = emailRef?.current!.value;
+    const password = passwordRef?.current!.value;
+    const profileURL =
+      "https://avatars.githubusercontent.com/u/87263170?s=80&v=4";
+    const role = "user";
+    signupUser(name, email, password, profileURL, role);
   };
 
   return (
@@ -28,13 +40,25 @@ const SignupPage = () => {
                   <Label className="text-white mb-1" htmlFor="name">
                     Name
                   </Label>
-                  <Input type="text" id="name" placeholder="Your name" />
+                  <Input
+                    required
+                    ref={nameRef}
+                    type="text"
+                    id="name"
+                    placeholder="Your name"
+                  />
                 </div>
                 <div className="grid w-full max-w-sm items-center my-4">
                   <Label className="text-white mb-1" htmlFor="email">
                     Email
                   </Label>
-                  <Input type="email" id="email" placeholder="Your Email" />
+                  <Input
+                    required
+                    ref={emailRef}
+                    type="email"
+                    id="email"
+                    placeholder="Your Email"
+                  />
                 </div>
 
                 <div className="grid w-full max-w-sm items-center ">
@@ -42,8 +66,10 @@ const SignupPage = () => {
                     Password
                   </Label>
                   <Input
+                    ref={passwordRef}
                     type="password"
                     id="password"
+                    required
                     placeholder="Your password"
                   />
                 </div>
@@ -55,7 +81,10 @@ const SignupPage = () => {
                         Login
                       </Link>
                     </span>
-                    <Button className="bg-blue-500 hover:bg-blue-600">
+                    <Button
+                      onClick={handleSignup}
+                      className="bg-blue-500 hover:bg-blue-600"
+                    >
                       Signup
                     </Button>
                   </div>

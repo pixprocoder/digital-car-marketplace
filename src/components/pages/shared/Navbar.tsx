@@ -27,9 +27,9 @@ const NavbarPage = () => {
   const { value } = useAppSelector((state) => state.service);
 
   const { data: userData, isLoading } = useGetUsersQuery(undefined);
+  // console.log(userData);
 
   const admin = userData?.data.filter((role: any) => role.role === "admin");
-  // console.log(admin);
   const super_admin = userData?.data.filter(
     (role: any) => role.role === "super_admin"
   );

@@ -1,6 +1,11 @@
 import axios from "axios";
 
-const loginUser = async (email, password, role, profileURL) => {
+const loginUser = async (
+  email: string,
+  password: string,
+  role: string,
+  profileURL: string
+) => {
   try {
     const response = await axios.post(
       "http://localhost:5000/api/v1/auth/login",
