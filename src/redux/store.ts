@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterSlice from "./features/counterSlice";
 import serviceSlice from "./features/services/serviceSlice";
+import userSlice from "./features/users/userSlice";
 import { api } from "./api/apiSlice";
 
 export const store = configureStore({
   reducer: {
     counter: counterSlice,
+    users: userSlice,
     service: serviceSlice,
     [api.reducerPath]: api.reducer,
   },

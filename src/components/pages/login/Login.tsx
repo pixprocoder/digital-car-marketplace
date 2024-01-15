@@ -1,16 +1,17 @@
 "use client";
 
-import { Card, CardFooter, CardHeader } from "@/components/ui/card";
-import { signIn } from "next-auth/react";
-import Image from "next/image";
-import { SiGithub, SiGoogle } from "react-icons/si";
-import loginImg from "../../../assets/login.svg";
 import { Button } from "@/components/ui/button";
+import { Card, CardFooter, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
+import { useGetUsersQuery } from "@/redux/api/apiSlice";
+import { signIn } from "next-auth/react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
+import { SiGithub, SiGoogle } from "react-icons/si";
+import loginImg from "../../../assets/login.svg";
 import loginUser from "../../../helpers/loginUser";
 
 // eslint-disable-next-line @next/next/no-async-client-component
@@ -18,12 +19,34 @@ const LoginPage = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
 
+  // const dispatch = useAppDispatch();
+
+  const { data: userData, isLoading } = useGetUsersQuery(undefined);
+  // console.log(userData);
+
+  const admin = userData?.data.filter((role: any) => role.role === "admin");
+  const user = userData?.data.filter((role: any) => role.role === "user");
+  const super_admin = userData?.data.filter(
+    (role: any) => role.role === "super_admin"
+  );
+
   const handleLogin = () => {
+    return alert(
+      "Login functionality not properly completed please login with GITHUB"
+    );
+
     const email = emailRef?.current!.value;
     const password = passwordRef?.current!.value;
-    const profileURL = "profile";
-    const role = "admin";
+    const currentProfileURL = user?.filter(
+      (item: any) => item.profileURL === profileURL
+    );
+    const profileURL = currentProfileURL[0].profileURL;
+    const currentUser = user?.filter((item: any) => item.email === email);
+    const role = currentUser[0].role;
     loginUser(email, password, role, profileURL);
+
+    password.value = "";
+    email.value = "";
   };
 
   return (
@@ -83,7 +106,11 @@ const LoginPage = () => {
               <Separator className="my-4" />
             </div>
             <CardFooter className="flex flex-col w-full gap-2">
-              <Button onClick={() => signIn("google")} className="w-full">
+              <Button
+                disabled
+                onClick={() => signIn("google")}
+                className="w-full"
+              >
                 <SiGoogle className="mr-2 h-4 w-4" /> Continue with Google
               </Button>
               <Button onClick={() => signIn("github")} className="w-full">
@@ -91,7 +118,7 @@ const LoginPage = () => {
               </Button>
             </CardFooter>
           </div>
-          <div className="flex-1">
+          <div className="hidden lg:flex flex-1">
             <Image src={loginImg} alt="login" />
           </div>
         </Card>

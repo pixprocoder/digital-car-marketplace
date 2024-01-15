@@ -12,20 +12,30 @@ import loginImg from "../../../assets/login.svg";
 import { signIn } from "next-auth/react";
 import { useRef } from "react";
 import signupUser from "@/helpers/signupUser";
+import { useToast } from "@/components/ui/use-toast";
 
 const SignupPage = () => {
+  const { toast } = useToast();
   const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
 
   const handleSignup = () => {
+    return alert(
+      "signup functionality not properly completed please signup with GITHUB"
+    );
     const name = nameRef.current!.value;
     const email = emailRef?.current!.value;
     const password = passwordRef?.current!.value;
     const profileURL =
       "https://avatars.githubusercontent.com/u/87263170?s=80&v=4";
     const role = "user";
+
     signupUser(name, email, password, profileURL, role);
+
+    name.value = "";
+    email.value = "";
+    password.value = "";
   };
 
   return (
@@ -97,7 +107,11 @@ const SignupPage = () => {
               <Separator className="my-4" />
             </div>
             <CardFooter className="flex flex-col w-full gap-2">
-              <Button onClick={() => signIn("google")} className="w-full">
+              <Button
+                disabled
+                onClick={() => signIn("google")}
+                className="w-full"
+              >
                 <SiGoogle className="mr-2 h-4 w-4" /> Continue with Google
                 {/* <UserButton afterSignOutUrl="/" /> */}
               </Button>
@@ -106,7 +120,7 @@ const SignupPage = () => {
               </Button>
             </CardFooter>
           </div>
-          <div className="flex-1">
+          <div className="hidden lg:flex flex-1">
             <Image src={loginImg} alt="login" />
           </div>
         </Card>
