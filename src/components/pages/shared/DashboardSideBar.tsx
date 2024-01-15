@@ -17,10 +17,16 @@ const DashboardSideBarPage = () => {
         </div>
         <hr />
       </div>
-      <div className="flex flex-col gap-2 mt-4 px-2">
-        <Button>Order</Button>
-        <Button>Booking</Button>
-        <Button>Order History</Button>
+      <div className="flex flex-col gap-2 mt-4 px-2 ">
+        <Link className="" href="/dashboard/my-order">
+          <Button className="w-full">Order</Button>
+        </Link>
+        <Link href="/dashboard/my-booking">
+          <Button className="w-full">Booking</Button>
+        </Link>
+        <Link href="/dashboard/order-history">
+          <Button className="w-full">Order History</Button>
+        </Link>
       </div>
     </section>
   );
