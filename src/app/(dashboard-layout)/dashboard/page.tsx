@@ -1,10 +1,16 @@
-import DashboardSideBarPage from "@/components/pages/shared/DashboardSideBar";
-import DashboardTopBar from "@/components/pages/shared/DashboardTopBar";
-import React from "react";
-import Profile from "./profile/page";
+import { Tabs, TabsContent } from "@/components/ui/tabs";
 
 const DashboardPage = () => {
-  return <section className=""></section>;
+  return (
+    <section className="text-white">
+      <h1>Hello</h1>
+      <Tabs>
+        <TabsContent value="account">
+          Make changes to your account here.
+        </TabsContent>
+      </Tabs>
+    </section>
+  );
 };
 
 export default DashboardPage;

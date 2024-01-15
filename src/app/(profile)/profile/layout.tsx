@@ -3,7 +3,7 @@ import DashboardPage from "./page";
 import DashboardTopBar from "@/components/pages/shared/DashboardTopBar";
 import Profile from "./profile/page";
 
-export default function DashboardLayout({
+export default function ProfileLayout({
   children,
 }: {
   children: React.ReactNode;
