@@ -1,5 +1,6 @@
 import DashboardSideBarPage from "@/components/pages/shared/DashboardSideBar";
 import DashboardTopBar from "@/components/pages/shared/DashboardTopBar";
+import ProfileSideBarPage from "@/components/pages/shared/ProfileSideBar";
 
 export default function ProfileLayout({
   children,
@@ -10,7 +11,7 @@ export default function ProfileLayout({
   return (
     <main className="container mx-auto ">
       <div className="flex my-4">
-        <DashboardSideBarPage />
+        <ProfileSideBarPage />
         <div className="ml-4 w-full ">
           <DashboardTopBar />
           {children}
