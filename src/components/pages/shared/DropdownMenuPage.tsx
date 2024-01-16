@@ -11,7 +11,13 @@ import {
 import { signOut } from "next-auth/react";
 import Link from "next/link";
 
-const DropdownMenuPage = ({ userImage }: { userImage: string }) => {
+const DropdownMenuPage = ({
+  userImage,
+  closeToggleMenu,
+}: {
+  userImage: string;
+  closeToggleMenu: any;
+}) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="border-blue-500">
@@ -27,13 +33,18 @@ const DropdownMenuPage = ({ userImage }: { userImage: string }) => {
         {/* <DropdownMenuLabel>My Account</DropdownMenuLabel> */}
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <Link href={`/profile`}>Profile</Link>
+          <Link onClick={closeToggleMenu} className="w-full" href={`/profile`}>
+            <Button className="w-full">Profile</Button>
+          </Link>
         </DropdownMenuItem>
-        <DropdownMenuItem>Dashboard</DropdownMenuItem>
-        <DropdownMenuItem>Team</DropdownMenuItem>
-        <DropdownMenuItem>Subscription</DropdownMenuItem>
         <DropdownMenuItem>
-          <Button onClick={() => signOut()} className="">
+          <Link onClick={closeToggleMenu} href="/dashboard">
+            <Button>Dashboard</Button>
+          </Link>
+        </DropdownMenuItem>
+
+        <DropdownMenuItem>
+          <Button onClick={() => signOut()} className="w-full">
             LOGOUT
           </Button>
         </DropdownMenuItem>

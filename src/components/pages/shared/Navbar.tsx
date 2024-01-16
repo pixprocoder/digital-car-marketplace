@@ -84,6 +84,7 @@ const NavbarPage = () => {
             {user?.email ? (
               <div className="mb-2">
                 <DropdownMenuPage
+                  closeToggleMenu={closeToggleMenu}
                   userImage={user?.image ? user?.image : "Gust"}
                 />
               </div>
