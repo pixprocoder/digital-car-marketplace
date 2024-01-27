@@ -29,10 +29,10 @@ const DropdownMenuPage = ({
           My Account
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent className="bg-gray-900  border-none">
         {/* <DropdownMenuLabel>My Account</DropdownMenuLabel> */}
-        <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        {/* <DropdownMenuSeparator /> */}
+        <DropdownMenuItem className="hover:bg-gray-900">
           <Link onClick={closeToggleMenu} className="w-full" href={`/profile`}>
             <Button className="w-full">Profile</Button>
           </Link>
