@@ -23,8 +23,8 @@ const OrderHistoryPage = () => {
             <TableHead className="text-right">Amount</TableHead>
           </TableRow>
         </TableHeader>
-        <TableBody className="bg-gray-500">
-          <TableRow>
+        <TableBody className=" text-gray-300">
+          <TableRow className="hover:bg-gray-900">
             <TableCell className="font-medium">INV001</TableCell>
             <TableCell>Paid</TableCell>
             <TableCell>Credit Card</TableCell>
