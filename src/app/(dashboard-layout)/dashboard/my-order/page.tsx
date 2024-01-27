@@ -16,16 +16,16 @@ const MyOrderPage = () => {
       <div>
         <Table>
           <TableCaption>A list of your recent invoices.</TableCaption>
-          <TableHeader>
-            <TableRow>
+          <TableHeader className="">
+            <TableRow className="hover:bg-gray-900">
               <TableHead className="w-[100px]">Invoice</TableHead>
               <TableHead>Status</TableHead>
               <TableHead>Method</TableHead>
               <TableHead className="text-right">Amount</TableHead>
             </TableRow>
           </TableHeader>
-          <TableBody>
-            <TableRow>
+          <TableBody className=" text-gray-300">
+            <TableRow className="hover:bg-gray-900">
               <TableCell className="font-medium">INV001</TableCell>
               <TableCell>Paid</TableCell>
               <TableCell>Credit Card</TableCell>

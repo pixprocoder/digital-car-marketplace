@@ -8,10 +8,9 @@ import Link from "next/link";
 
 const DashboardSideBarPage = () => {
   const { data } = useSession();
-  console.log(data?.user);
 
   return (
-    <section className="min-h-[90vh] w-60  rounded-md bg-blue-900">
+    <section className="min-h-[90vh] w-60  rounded-md bg-gray-900">
       <div className="">
         <div className="text-white px-4 py-4 flex flex-col justify-center items-center">
           <Avatar className="w-12 h-12 rounded-full">
